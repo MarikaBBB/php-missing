@@ -20,7 +20,7 @@ class Urls {
         return (
             (\strlen($authority) > 0 ? "//$authority" : "") .
             ($parsed['path'] ?? "") .
-            (\strlen($query) > 0 ? "?$query" : "") .
+            (\strlen($query ?? '') > 0 ? "?$query" : "") .
             (\strlen($fragment) > 0 ? "#$fragment" : "")
         );
     }
