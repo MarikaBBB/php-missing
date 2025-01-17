@@ -9,8 +9,8 @@ class Urls {
         $user      = $parsed['user'] ?? null;
         $userinfo  = $pass !== null ? "$user:$pass" : $user;
         $port      = $parsed['port'] ?? 0;
-        $scheme    = $parsed['scheme'] ?? "";
-        $query     = $parsed['query'] ?? "";
+        $scheme    = $parsed['scheme'] ?? null;
+        $query     = $parsed['query'] ?? null;
         $fragment  = $parsed['fragment'] ?? "";
         $authority = (
             ($userinfo !== null ? "$userinfo@" : "") .
@@ -18,7 +18,6 @@ class Urls {
             ($port ? ":$port" : "")
         );
         return (
-            (\strlen($scheme) > 0 ? "$scheme:" : "") .
             (\strlen($authority) > 0 ? "//$authority" : "") .
             ($parsed['path'] ?? "") .
             (\strlen($query) > 0 ? "?$query" : "") .
