@@ -1,6 +1,11 @@
 <?php
 
-class UrlsTest extends \PHPUnit\Framework\TestCase 
+namespace Missing\tests;
+
+use \PHPUnit\Framework\TestCase;
+use Missing\Urls;
+
+class UrlsTest extends TestCase
 {
     public function test_unparse_url()
     {
@@ -9,6 +14,6 @@ class UrlsTest extends \PHPUnit\Framework\TestCase
         $rebuild = Urls::unparse_url($parsed);
 
 
-       $this->assertEquals('Test case for unparse_url not implement yet');
+       $this->assertEquals($url, 'Test case for unparse_url not implement yet');
     }
 }
