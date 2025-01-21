@@ -5,7 +5,7 @@ namespace Missing\tests;
 use \PHPUnit\Framework\TestCase;
 use Missing\Urls;
 
-class UrlsTest extends TestCase
+class Urls_test extends TestCase
 {
     public function test_unparse_url()
     {
