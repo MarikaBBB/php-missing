@@ -11,9 +11,10 @@ class Urls_test extends TestCase
     {
         $url = '';
         $parsed = parse_url($url);
-        $rebuild = Urls::unparse_url($parsed);
+        $rebuildUrl = Urls::unparse_url($parsed);
+        $parsedRebuilt = parse_url($rebuildUrl);
 
 
-       $this->assertEquals($url, 'Test case for unparse_url not implement yet');
+       $this->assertEquals($parsed, $parsedRebuilt, 'Failed  to reconstruct empty string URL');
     }
 }
