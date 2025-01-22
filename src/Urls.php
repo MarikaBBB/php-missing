@@ -13,11 +13,10 @@ class Urls
         $user = $parsed['user'] ?? '';
         $pass = isset($parsed['pass']) ? ':' . $parsed['pass'] : '';
         $auth = ($user || $pass) ? "$user$pass@" : '';
+        $query = isset($parsed['query']) ? "?" . $parsed['query'] : "";
+        $fragment = isset($parsed['fragment']) ? "#" . $parsed['fragment'] : "";
 
-        // $query = isset($parsed['query']) ? "?" . $parsed['query'] : "";
-        // $fragment = isset($parsed['fragment']) ? "#" . $parsed['fragment'] : "";
-
-        return "$scheme$auth$host$port$path";
+        return "$scheme$auth$host$port$path$query$fragment";
 
     }
 }
