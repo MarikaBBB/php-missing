@@ -61,4 +61,15 @@ class Urls_test extends TestCase
 
        $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct incomplete URL: '{$url}'");
     }
+
+    public function testUnparseUrlSsh()
+    {
+        $url = 'ssh://root@host';
+        $parsed = parse_url($url);
+        $rebuildUrl = Urls::unparse_url($parsed);
+        $parsedRebuilt = parse_url($rebuildUrl);
+
+
+       $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct SSH URL: '{$url}'");
+    }
 }
