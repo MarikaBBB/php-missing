@@ -10,8 +10,14 @@ class Urls
         $host = isset($parsed['host']) ? $parsed['host'] : "";
         $path = $parsed['path'] ?? '';
         $port = isset($parsed['port']) ? ':' . $parsed['port'] : '';
+        $user = $parsed['user'] ?? '';
+        $pass = isset($parsed['pass']) ? ':' . $parsed['pass'] : '';
+        $auth = ($user || $pass) ? "$user$pass@" : '';
 
-        return "$scheme$host$port$path";
+        // $query = isset($parsed['query']) ? "?" . $parsed['query'] : "";
+        // $fragment = isset($parsed['fragment']) ? "#" . $parsed['fragment'] : "";
+
+        return "$scheme$auth$host$port$path";
 
     }
 }
