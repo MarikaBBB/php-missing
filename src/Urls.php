@@ -8,8 +8,9 @@ class Urls
     {
         // $scheme = isset($parsed['scheme']) ? $parsed['scheme'] . "://" : "";
         // $host = isset($parsed['host']) ? $parsed['host'] : "";
+        $path = $parsed['path'] ?? '';
 
-        return $parsed['path'] ?? '';
+        return $path;
 
     }
 }
