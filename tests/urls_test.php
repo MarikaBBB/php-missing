@@ -83,4 +83,15 @@ class Urls_test extends TestCase
 
        $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct malformed URL: '{$url}'");
     }
+
+    public function testUnparseUrlWithEmptyUserAndPass()
+    {
+        $url = 'http://:@foo:1/path/path?#';
+        $parsed = parse_url($url);
+        $rebuildUrl = Urls::unparse_url($parsed);
+        $parsedRebuilt = parse_url($rebuildUrl);
+
+
+       $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct URL with empty user and password: '{$url}'");
+    }
 }
