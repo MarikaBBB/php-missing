@@ -28,4 +28,15 @@ class Urls_test extends TestCase
 
        $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct simple string URL: '{$url}'");
     }
+
+    public function testUnparseFullUrl()
+    {
+        $url = 'http://www.google.com/';
+        $parsed = parse_url($url);
+        $rebuildUrl = Urls::unparse_url($parsed);
+        $parsedRebuilt = parse_url($rebuildUrl);
+
+
+       $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct full URL: '{$url}'");
+    }
 }
