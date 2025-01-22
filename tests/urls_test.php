@@ -72,4 +72,15 @@ class Urls_test extends TestCase
 
        $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct SSH URL: '{$url}'");
     }
+
+    public function testUnparseMalformedUrl()
+    {
+        $url = '://:@:1/?#';
+        $parsed = parse_url($url);
+        $rebuildUrl = Urls::unparse_url($parsed);
+        $parsedRebuilt = parse_url($rebuildUrl);
+
+
+       $this->assertEquals($parsed, $parsedRebuilt, "Failed  to reconstruct malformed URL: '{$url}'");
+    }
 }
